@@ -1,29 +1,33 @@
 <% include header %>
 
-<img class="logo" src="http://sarahgargano.com/wp-content/uploads/2013/10/surface-logo.png">
-<nav>
-  <h3>Stories</h3>
-  <br><br>
-  <% for (var i = 0; i < categorieen.length; i++) { %>
-    <a class="categories" href="/categorieen/<%- i %>"><%- categorieen[i] %></a>
-  <% } %>
-</nav>
+<section id="top">
+  <h1>AFEC</h1>
+  <nav>
+    <% for (var i = 0; i < categorieen.length; i++) { %>
+      <a id="cat" href="/categorieen/<%- i %>"><%- categorieen[i] %></a>
+    <% } %>
+  </nav>
+</section>
 
-
+<div id="grid">
   <% var teller = 1; %>
   <% nieuws.forEach(function(item){ %>
-    <section>
-        <h2 class="titel">
+    <section id="griditem">
+        <img src="/img/<%- item.afbeeldings %>" alt="<%- item.titel %>">
+        <div id="overlay">
+        <div id="text">
+        <h2 id="titel">
           <a href=/items/<%- item.id %>><%- item.titel %></a>
         </h2>
-        <img src="/img/<%- item.afbeeldings %>" alt="<%- item.titel %>">
-        <p class="datum"><%- item.datum %></p>
+        <p id="datum"><%- item.datum %></p>
 
         <p>
           <%- item.samenvatting %>
         </p>
+        </div>
+        </div>
     </section>
     <% teller++;}); %>
-
+</div>
 
 <% include footer %>
